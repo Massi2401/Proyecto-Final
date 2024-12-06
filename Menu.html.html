@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú</title>
+
+    <!-- CSS de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Scripts de Bootstrap y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0f0202;
+            color: #e8dede;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            margin: 0;
+        }
+        header {
+            background-color: #b10b0b;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2em;
+            text-align: left;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            padding: 10px 20px;
+            color: #fff;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        .nav-icon img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .container {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            width: 250px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px; /* Tamaño fijo para las imágenes */
+            object-fit: cover; /* Mantiene la proporción de las imágenes */
+            display: block;
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            font-size: 1em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .card-content p {
+            font-size: 0.9em;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.5em;
+            color: #555;
+            font-weight: bold;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .card-footer {
+            background-color: #eee;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+
+
+        .card:hover .card-footer {
+            background-color: #6c63ff;
+        }
+
+        .button {
+            display: block;
+            padding: 10px 15px;
+            background-color: #6c63ff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s;
+        }
+
+        .card:hover .button {
+            background-color: #5549c6;
+        }
+
+        .price:hover {
+     color: #6c63ff;
+        
+    }
+        /* Footer */
+        footer {
+            background-color: #ed1111;
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 5px 0;
+        }
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        .social-icons i {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .social-icons i:hover {
+            color: #ff5733;
+        }
+        .line {
+      height: 3px;
+      width: 100%;
+      background-color: #e9ecef;
+    }
+  
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-icon">
+                <img class="logo" src="file:///C:/Users/Massiel%20Gonzales/Desktop/mipaginaweb/vecin_rectangular.jpg" alt="Logo de La Vecina">
+            </div>
+            <h1><b><u>Menú</u></b></h1>
+        </nav>
+    </header>
+
+
+    <div class="container">
+        <h1><b>La Vecina, Comedor Cafetería.</b></h1>
+        <h3><b><p>Nuestro Menú</p></b></h3>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+                <div class="card">
+                    <img src="https://almomento.net/wp-content/uploads/2023/03/Gastronomia-dominicana.jpg" alt="Caldos2" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Caldos</h3>
+                        <p class="card-text">Sancocho</p>
+                        <div class="price">500</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card">
+                    <img src="https://comedera.com/wp-content/uploads/sites/9/2023/09/Cazuela-de-mariscos-shutterstock_1836014740.jpg?resize=1316,740&quality=80" alt="Cazu" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Cazu</h3>
+                        <p class="card-text">mariscos</p>
+                        <div class="price">800</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col">
+                <div class="card">
+                    <img src="https://rumbameats.com/wp-content/uploads/2019/07/Picada-de-carnes-Rumba-Meats_Colombia.jpg" alt="Carnitas" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Carnitas</h3>
+                        <p class="card-text">Papas al horno</p>
+                        <div class="price">700</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="col">
+                <div class="card">
+                    <img src="https://i0.wp.com/nuevodiario-assets.s3.us-east-2.amazonaws.com/wp-content/uploads/2023/09/13083051/asdfbn.jpg?fit=1000%2C600&quality=100&ssl=1" alt="La Bandera" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">La Bandera</h3>
+                        <p class="card-text">Plato del día</p>
+                        <div class="price">250</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <img src="https://conzazoni.com/wp-content/uploads/2023/05/recetas-especiales-con-pastas-conzazoni-1024x683.webp" alt="Pastas" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Pastas</h3>
+                        <p class="card-text">Espirales</p>
+                        <div class="price">300</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="col">
+                <div class="card">
+                    <img src="https://catalinaparrilla.cat/wp-content/uploads/2021/09/carne-parrilla.jpg" alt="Carne a la parrilla" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Carne a la parrilla</h3>
+                        <p class="card-text">Con guarniciones</p>
+                        <div class="price">500</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col">
+                <div class="card">
+                    <img src="https://i0.wp.com/cocineando.com/wp-content/uploads/2019/03/mariscos.jpg?w=1400&ssl=1" alt="Mariscada" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Mariscada</h3>
+                        <p class="card-text">Salpicón</p>
+                        <div class="price">500</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="col">
+                <div class="card">
+                    <img src="https://media.istockphoto.com/id/819978124/es/foto/mole-de-olla-de-sopa-de-verduras.jpg?s=2048x2048&w=is&k=20&c=dyi3ZDBSHjMO09KYx3eZh56B04ci4xEwV0ZG3-XIV34=" alt="Caldos" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Caldos</h3>
+                        <p class="card-text">Sancocho</p>
+                        <div class="price">500</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+         
+            <div class="col">
+                <div class="card">
+                    <img src="https://traveler.marriott.com/es/wp-content/uploads/sites/2/2019/01/Mangu_cLilyGirma-header.jpg" alt="Desayuno" class="card-img-top">
+                    <div class="card-body">
+                        <h3 class="card-title">Desayuno</h3>
+                        <p class="card-text">Viveres</p>
+                        <div class="price">300</div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="button">Agregar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br></br>
+    <footer>
+        
+        <div class="nav-icon">
+            <img src="file:///C:/Users/Massiel%20Gonzales/Desktop/mipaginaweb/vecin_rectangular.jpg" alt="Logo de La Vecina">
+          </div>
+
+        <div class="footer-section">
+            <h3><b>Enlaces:</b></h3>
+            <ul>
+              <li><a href="Vecina2.html"><b>Inicio</b></a></li>
+              <li><a href="ubicacion.html"><b>Ubicacíon</b></a></li>
+              <li><a href="contactos.html"><b>Contactos</b></a></li>
+            </ul>
+          </div>
+        </div>
+        <hr class="line">
+        <p><b>©2024 Massiel González - Todos los derechos reservados</b></p>
+        <div class="social-icons">
+          <i class="bi bi-instagram"></i>
+          <i class="bi bi-facebook"></i>
+          <i class="bi bi-twitter"></i>
+        </div>
+    </footer>
+</body>
+</html>
